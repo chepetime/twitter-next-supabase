@@ -30,17 +30,17 @@ export default function AuthButton({ session }: AuthButtonProps) {
 
   return session ? (
     <button
-      className="bg-blue-700 font-bold text-white p-2 rounded-xl"
+      className="bg-blue-600 p-2 text-white/90 rounded-lg"
       onClick={handleSignOut}
     >
-      Logout
+      Log Out
     </button>
   ) : (
     <button
-      className="bg-blue-700 font-bold text-white p-2 rounded-xl"
+      className="bg-blue-600 p-2 text-white/90 rounded-lg"
       onClick={handleSignIn}
     >
-      Login
+      Log In
     </button>
   );
 }
