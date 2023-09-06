@@ -1,27 +1,23 @@
 import { cookies } from "next/headers";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import LoginButton from "@/components/auth-button-server";
 import { redirect } from "next/navigation";
 
-export default async function Home() {
+import LoginButton from "@/components/auth-button-server";
+
+export default async function Login() {
   const supabase = createServerComponentClient<Database>({ cookies });
   const {
     data: { session },
   } = await supabase.auth.getSession();
 
-  if (!session) {
-    redirect("/login");
+  if (session) {
+    redirect("/");
   }
-
-  const { data: tweets } = await supabase
-    .from("tweets")
-    .select("*, profiles(*)");
 
   return (
     <main className="min-h-screen p-4">
+      <h1>Login into Blue bird</h1>
       <LoginButton />
-
-      <pre>{JSON.stringify(tweets, null, 2)}</pre>
     </main>
   );
 }
