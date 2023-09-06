@@ -5,6 +5,8 @@ import {
   createServerComponentClient,
 } from "@supabase/auth-helpers-nextjs";
 
+export const dynamic = "force-dynamic";
+
 interface NewTweetProps {
   user: User;
 }

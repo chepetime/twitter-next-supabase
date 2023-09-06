@@ -2,8 +2,9 @@ import { cookies } from "next/headers";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { redirect } from "next/navigation";
 
-import LoginButton from "@/components/auth-button-server";
 import GithubButton from "@/components/github-button";
+
+export const dynamic = "force-dynamic";
 
 export default async function Login() {
   const supabase = createServerComponentClient<Database>({ cookies });
