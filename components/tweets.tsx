@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, experimental_useOptimistic as useOptimistic } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import Likes from "@/components/likes";
@@ -54,9 +55,18 @@ export default function Tweets({ tweets }: TweetsProps) {
         return (
           <div
             key={tweet.created_at}
-            className="bg-white border shadow p-4 rounded-xl"
+            className="bg-white border shadow p-4 rounded-xl flex gap-4"
           >
-            <div className="flex flex-col gap-2 justify-start items-start">
+            <div className="h-12 w-12">
+              <Image
+                className="rounded-full"
+                src={tweet.author.avatar_url}
+                alt="tweet user avatar"
+                width={48}
+                height={48}
+              />
+            </div>
+            <div className="flex flex-col gap-1 justify-start items-start">
               <p>
                 <strong>{tweet.author.name}</strong>{" "}
                 <span className="text-slate-500">
