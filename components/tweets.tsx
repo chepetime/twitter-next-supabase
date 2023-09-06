@@ -59,7 +59,7 @@ export default function Tweets({ tweets }: TweetsProps) {
           >
             <div className="h-12 w-12">
               <Image
-                className="rounded-full"
+                className="rounded-full h-12 w-12"
                 src={tweet.author.avatar_url}
                 alt="tweet user avatar"
                 width={48}
